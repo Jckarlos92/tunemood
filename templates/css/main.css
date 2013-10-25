@@ -1,0 +1,157 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+@font-face
+{
+font-family: tuneFont;
+src: url('tunefont.ttf')
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin-top: 25px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+input[type="submit"]{
+    background-color: #26a5a8;
+	color:#ffffff;
+	font-family:tuneFont;
+	text-align:center;
+    border-width: 0px;
+}
+
+input[type="submit"]:hover{
+    background-color: #2eb2b5;
+}
+
+#menu {
+    background: #1180a8;
+    position: relative;
+}
+
+#menu ul li {
+    display: inline;
+}
+
+.menu-button{
+    padding: 21px 20px 22px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    float: right;
+    font-family: tuneFont;
+    letter-spacing: 1px;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+#login-link{
+    margin-right: 100px;
+}
+
+.menu-button:hover{
+    background: #1194bc;
+}
+
+.click-menu-button{
+    background: #1194bc;
+}
+
+#login-panel{
+    height: 125px;
+    right: 99px;
+    top: 62px;
+}
+
+#sign-up-panel{
+    height: 160px;
+    right: 194px;
+    top: 62px;
+}
+
+.panel input[type="submit"]{
+    border-radius: 5px 5px 5px 5px;
+	font-size:10pt;
+	height:25px;
+	width:80px;
+}
+
+.panel{
+    text-align: center;
+    padding: 15px 25px 8px 25px;
+    width: 150px;
+    background: #5cbfe5;
+    font-size: 10pt;
+    font-family: tuneFont;
+    color: #FFFFFF;
+    display: none;
+    border: 1px solid #26a5a8;
+    position: absolute;
+    z-index: 10;
+}
+
+#login-panel input[type="submit"]:hover{
+    background-color: #2eb2b5;
+}
+
+#header {
+    position: relative;
+    background: #1180a8;
+    width: 35%;
+    margin: auto;
+    text-align: center;
+    font-family: tuneFont;
+    font-size: 32;
+    color: white;
+}
+
+#subheader {
+    position: relative;
+    background: #5cbfe5;
+    width: 35%;
+    margin: auto;
+    text-align: center;
+}
+
+#page-container{
+    background: #ccddee;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#content{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+
+#error_label{
+    margin-left: 42%;
+    margin-top: 2%;
+}
+
+#search_text{
+    line-height: 28px;
+    font-family:Trebuchet MS;
+	font-size:20px;
+    width: 120px;
+}
+
