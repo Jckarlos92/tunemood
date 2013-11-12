@@ -66,7 +66,7 @@ class SignUp(Handler):
         #mandar email
         if not have_error:
 
-            self.confirmation_link = "http://www.tunnymood.appspot.com/lg=" + hash_str(self.email)
+            self.confirmation_link = "http://www.tunnymood.appspot.com/" + hash_str(self.email)
             sender_address = "TuneMood <pedrotrens@gmail.com>"
             subject = "Confirm Your Registration"
             body = "Welcome to TuneMood, click on the link to finish your registration \n %s" % self.confirmation_link
@@ -88,23 +88,53 @@ class SignUp(Handler):
                         link_generated=self.confirmation_link)
 
             user.put()#guarda en la base de datos el usuario creado
-            self.response.out.write("An confirmation email was sent to your account")
+            self.response.out.write("A confirmation email was sent to your account")
 
 
 class Confirmation(Handler):
 
     def get(self):
 
-        link = self.request.get("lg")
+        link = self.request.url
         user = by_lg(link)
 
         if user:
             user.is_user = True
+            user.put()
             hashed_user = make_secure_val(str(user.key().id()))
             self.response.headers.add_header('Set-Cookie', 'user_id = %s; path=/'%hashed_user)
             self.redirect('/')
 
 
+class Login(Handler):
+    def post(self):
+        self.email = self.request.get('email')
+        self.password = self.request.get('password')
 
+        error = False
+
+        if not valid_password(self.password) or not valid_email(self.email):
+            error = True
+
+        user = by_email(self.email)
+
+        if user:
+            if hash_str(self.password) != user.hash_pw:
+                error = True
+        else:
+            error = True
+
+        if error:
+            self.response.out.write("Invalid Username or Password")
+
+        else:
+            hashed_user = make_secure_val(str(user.key().id()))
+            self.response.headers.add_header('Set-Cookie', 'user_id = %s; path=/'%hashed_user)
+            self.response.out.write("Welcome " + self.email)
+
+
+class Logout(Handler):
+    def get(self):
+        self.response.headers.add_header('Set-Cookie', 'user_id =; path=/')
 
 

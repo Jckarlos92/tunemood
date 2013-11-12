@@ -1,0 +1,21 @@
+#happy{
+    position: absolute;
+    right: 400px;
+    bottom: 230px;
+}
+
+#sad{
+    position: absolute;
+    right: 200px;
+    bottom: 230px;
+}
+
+#angry{
+    position: absolute;
+    right: 300px;
+    bottom: 150px;
+}
+
+#id_song{
+    display: none;
+}

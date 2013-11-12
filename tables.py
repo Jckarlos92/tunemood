@@ -7,4 +7,5 @@ class User(db.Model):
     link_generated = db.StringProperty(required = True)
 
 class Tag(db.Model):
+    id = db.StringProperty(required = True)
     name = db.StringProperty(required = True)

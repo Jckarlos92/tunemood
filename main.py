@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import tagger
 import random
 import urllib2
 import json
@@ -32,7 +33,8 @@ def check_secure_val(h):
         return v
         
 class FrontPage(handler.Handler):
-    def get(self):
+    def check_login(self):
+        self.a = None
         user = self.request.cookies.get('user_id')
         checked_user = None
         if user:
@@ -40,12 +42,24 @@ class FrontPage(handler.Handler):
 
         if checked_user:
             user_key = db.Key.from_path('User', int(checked_user))
-            a = db.get(user_key)
-            self.write(a.email)
+            self.a = db.get(user_key)
 
-        self.render('prueba.html')
+    def get(self):
+
+        self.check_login()
+        email = ""
+        if self.a:
+            email = "Welcome: " + self.a.email
+
+        self.render('prueba.html',user=email)
         
     def post(self):
+
+        self.check_login()
+        email = ""
+        if self.a:
+            email = "Welcome: " + self.a.email
+
         self.feel_input = self.request.get('feel_input')
 
         flag = True
@@ -107,11 +121,14 @@ class FrontPage(handler.Handler):
         else:
             error = "No se encontraron canciones"
         
-        self.render('prueba.html', song_id = song_id, error = error);
+        self.render('prueba.html', song_id = song_id, error = error, user = email);
         
 
 app = handler.webapp2.WSGIApplication([
     ('/', FrontPage),
     ('/signup', sign_log.SignUp),
+    ('/login', sign_log.Login),
+    ('/logout', sign_log.Logout),
+    ('/tag', tagger.Tag),
     (r'/.*',  sign_log.Confirmation),
 ], debug=True)

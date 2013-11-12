@@ -1,8 +1,10 @@
 
     <head>
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/tags.css">
         <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
         <script src="js/menu_jq.js" ></script>
+        <script src="js/jquery-1.9.1.js"></script>
     </head>
     <body>
 
@@ -11,8 +13,10 @@
             <div id="menu">
                 <ul>
                 <li><a><img src="css/tunemood_image.png"></a></li>
+                <li><a id="log-out" class="menu-button">LOG OUT</a></li>
                 <li><a id="login-link" class="menu-button">LOG IN</a></li>
-                <li><a class="menu-button" id="sign-up">SIGN UP</a></li>
+                <li><a id="sign-up" class="menu-button" >SIGN UP</a></li>
+                <li><a id="welcome-label" class="menu-button" >{{user}}</a></li>
                 </ul>
             </div>
 
@@ -24,21 +28,22 @@
                     <br>
                     <label>Re-Password: <input class="input-text" type="password" name="re_password_up" value="" maxlength="25"> </label>
                     <br><br>
-                    <input type="submit" name="sign_up" value="Sign Up" onclick="TestingStuff()">
+                    <input type="submit" name="sign_up" value="Sign Up" onclick="signUp()">
                     </form>
             </div>
 
             <div id="login-panel" class="panel">
-                    <form method="post">
+                    <form method="post" id="login_form">
                     <label>Email: <input class="input-text" type="text" name="email" value="" maxlength="25"> </label>
                     <br>
                     <label>Password: <input class="input-text" type="password" name="password" value="" maxlength="25"> </label>
                     <br><br>
-                    <input type="submit" name="login" value="Log In">
+                    <input type="submit" name="login" value="Log In" onclick="logIn()">
                     </form>
             </div>
 
-            <div id="success"></div>
+
+            <div id="id_song">{{song_id}}</div>
 
             <div id="header">
                 <label>Music For Your Mood</label>
@@ -50,11 +55,16 @@
                 </form>
             </div>
 
-<!--
+
             <div id="content">
-                <object id="player" width="360" height="150"><param name="movie" value="http://grooveshark.com/widget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs={{song_id}}&bbg=55706B&bth=55706B&pfg=FFFFFF&lfg=FFFFFF&bt=000000&pbg=000000&pfgh=FFCCCC&si=813B45&lbg=813B45&lfgh=813B45&sb=FFFFFF&bfg=000000&pbgh=000000&lbgh=B1BABF&sbh=B1BABF&p=0" /><embed src="http://grooveshark.com/widget.swf" type="application/x-shockwave-flash" width="250" height="250" flashvars="hostname=cowbell.grooveshark.com&songIDs=8815585&bbg=B4D5DA&bth=B4D5DA&pfg=B4D5DA&lfg=B4D5DA&bt=813B45&pbg=813B45&pfgh=813B45&si=813B45&lbg=813B45&lfgh=813B45&sb=813B45&bfg=B1BABF&pbgh=B1BABF&lbgh=B1BABF&sbh=B1BABF&p=1" allowScriptAccess="always" wmode="window" /></object>
+                <object id="player" width="360" height="150"><param name="movie" value="http://grooveshark.com/widget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs={{song_id}}&bbg=5cbfe5&bth=5cbfe5&pfg=FFFFFF&lfg=FFFFFF&bt=5fd8c5&pbg=1180a8&pfgh=FFCCCC&si=813B45&lbg=5fd8c5&lfgh=5fd8c5&sb=FFFFFF&bfg=5fd8c5&pbgh=000000&lbgh=B1BABF&sbh=B1BABF&p=0" /><embed src="http://grooveshark.com/widget.swf" type="application/x-shockwave-flash" width="250" height="250" flashvars="hostname=cowbell.grooveshark.com&songIDs=8815585&bbg=B4D5DA&bth=B4D5DA&pfg=B4D5DA&lfg=B4D5DA&bt=813B45&pbg=813B45&pfgh=813B45&si=813B45&lbg=813B45&lfgh=813B45&sb=813B45&bfg=B1BABF&pbgh=B1BABF&lbgh=B1BABF&sbh=B1BABF&p=1" allowScriptAccess="always" wmode="window" /></object>
             </div>
--->
+
+
+            <img src="css/happy.png" id="happy">
+            <img src="css/sad.png" id="sad">
+            <img src="css/angry.png" id="angry">
+
             <!--<div id="error_label">{{ error }}</div>-->
 
      </div>

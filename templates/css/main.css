@@ -39,6 +39,12 @@ input[type="submit"]{
 
 input[type="submit"]:hover{
     background-color: #2eb2b5;
+
+}
+
+#welcome-label{
+    position: relative;
+    right: 150px;
 }
 
 #menu {
@@ -61,10 +67,6 @@ input[type="submit"]:hover{
     font-weight: bold;
 }
 
-#login-link{
-    margin-right: 100px;
-}
-
 .menu-button:hover{
     background: #1194bc;
 }
@@ -75,13 +77,13 @@ input[type="submit"]:hover{
 
 #login-panel{
     height: 125px;
-    right: 99px;
+    right: 108px;
     top: 62px;
 }
 
 #sign-up-panel{
     height: 160px;
-    right: 194px;
+    right: 203px;
     top: 62px;
 }
 
@@ -112,8 +114,9 @@ input[type="submit"]:hover{
 
 #header {
     position: relative;
-    background: #1180a8;
+    background: #26a5a8;
     width: 35%;
+    top: 30px;
     margin: auto;
     text-align: center;
     font-family: tuneFont;
@@ -122,8 +125,9 @@ input[type="submit"]:hover{
 }
 
 #subheader {
+    top: 30px;
     position: relative;
-    background: #5cbfe5;
+    background: #5fd8c5;
     width: 35%;
     margin: auto;
     text-align: center;
@@ -138,7 +142,8 @@ input[type="submit"]:hover{
 
 #content{
     width: 50%;
-    margin: auto;
+    left: 100px;
+    top: 80px;
     text-align: center;
     position: relative;
 }
@@ -149,9 +154,14 @@ input[type="submit"]:hover{
 }
 
 #search_text{
-    line-height: 28px;
+    padding: 10px 10px 10px 10px;
+    line-height: 24px;
     font-family:Trebuchet MS;
 	font-size:20px;
-    width: 120px;
+    width: 180px;
+    height: 40px;
+    border: 2px solid #117ca6;
+    font-style: italic;
+    color: #818ea0;
 }
 
